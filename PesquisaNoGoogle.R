@@ -3,9 +3,11 @@ library(dplyr)
 library(tibble)
 
 google_url <- "www.google.com"
+item_search <- "Colégio Farias Brito"
 google_session <- html_session(google_url)
 google_form <- html_form(google_session)[[1]]
 google_form <- set_values(google_form, 
+                          'q' = item_search)
 
 google_session <- submit_form(session = google_session, 
                               form    = google_form,
