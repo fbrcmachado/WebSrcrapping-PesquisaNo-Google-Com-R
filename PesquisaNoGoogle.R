@@ -1,9 +1,11 @@
 library(rvest)
+library(dplyr)
+library(tibble)
+
 google_url <- "www.google.com"
 google_session <- html_session(google_url)
 google_form <- html_form(google_session)[[1]]
 google_form <- set_values(google_form, 
-                          'q' = "#microsoft")
 
 google_session <- submit_form(session = google_session, 
                               form    = google_form,
